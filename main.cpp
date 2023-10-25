@@ -78,10 +78,12 @@ int main()
 
     // Вывод
     for (item *current = products, *const afterLast = &products[n] + 1; products != afterLast; ++products)
-        std::cout << "The " << current - products + 1 << " item: " << current->name 
+    {    std::cout << "The " << current - products + 1 << " item: " << current->name 
         << "; quantity: " << current->quantity 
         << "; price of one instance: " << current->price << endl;
+        delete current->name;
+    }
+    delete[] products;
 
-    // TODO: очистить память
     return EXIT_SUCCESS;
 }
